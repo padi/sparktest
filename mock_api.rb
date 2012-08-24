@@ -2,7 +2,93 @@ SPARK_MOCK_RESPONSES = {
   # general format
   # "url" => { type: <<-eos eos },
 
-  # "url" => { type: <<-eos eos },
+  # Saved Searches
+  # http://sparkplatform.com/docs/api_services/saved_searches
+  # /savedsearches
+  "/savedsearches" => { get: <<-eos
+{
+  "D": {
+    "Success": true,
+    "Results": [
+      {
+        "ResourceUri": "/v1/savedsearches/20120709211054402696000000",
+        "Name": "All Residential Listings",
+        "OwnerId": "20110325213944541276000000",
+        "Id": "20120709211054402696000000",
+        "Filter": null,
+        "ModificationTimestamp": "2012-07-09T16:10:54-05:00",
+        "Description": ""
+      },
+      {
+        "ResourceUri": "/v1/savedsearches/20110418145731906410000000",
+        "Name": "Homes $100-$200k",
+        "OwnerId": "20110325213944541276000000",
+        "Id": "20110418145731906410000000",
+        "Filter": null,
+        "ModificationTimestamp": "2011-04-18T09:57:31-05:00",
+        "Description": ""
+      },
+      {
+        "ResourceUri": "/v1/savedsearches/20110418145645227747000000",
+        "Name": "Search Results",
+        "OwnerId": "20110325213944541276000000",
+        "Id": "20110418145645227747000000",
+        "Filter": null,
+        "ModificationTimestamp": "2011-04-18T09:56:45-05:00",
+        "Description": ""
+      }
+    ]
+  }
+}
+  eos,
+
+  post: <<-eos
+{
+    "D": {
+        "Success": true
+    }
+}
+  eos
+  },
+
+  # Saved Searches (single record)
+  # http://sparkplatform.com/docs/api_services/saved_searches
+  # /savedsearches/:id
+  "url" => { get: <<-eos
+{
+  "D": {
+    "Results": [
+      {
+        "ResourceUri": "/v1/savedsearches/20110418145731906410000000",
+        "Name": "Homes $100-$200k",
+        "OwnerId": "20110325213944541276000000",
+        "Id": "20110418145731906410000000",
+        "Filter": null,
+        "ModificationTimestamp": "2011-04-18T09:57:31-05:00",
+        "Description": ""
+      }
+    ],
+    "Success": true
+  }
+}
+  eos,
+
+  put: <<-eos
+{
+    "D": {
+        "Success": true
+    }
+}
+  eos,
+
+  delete: <<-eos
+{
+    "D": {
+        "Success": true
+    }
+}
+  eos
+  },
 
   # Shared Listings
   # http://sparkplatform.com/docs/api_services/shared_listings
