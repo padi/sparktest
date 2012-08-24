@@ -2,6 +2,67 @@ SPARK_MOCK_RESPONSES = {
   # general format
   # "url" => { type: <<-eos eos },
 
+  # "url" => { type: <<-eos eos },
+
+  # Shared Listings
+  # http://sparkplatform.com/docs/api_services/shared_listings
+  # /sharedlistings
+  "/sharedlistings" => { post: <<-eos
+{
+    "D": {
+        "Success": true,
+        "Results": [
+            {
+                "Id": "15Ar",
+                "ResourceUri":  "/v1/sharedlistings/15Ar",
+                "SharedUri":  "http://www.flexmls.com/share/15Ar/3544-N-Olsen-Avenue-Filabee-AZ-85719",
+                "ListingIds": ["20110224152431857619000000","20110125122333785431000000"],
+                "Mode": "Public"
+            }
+        ]
+    }
+}
+  eos,
+
+get: <<-eos
+{
+    "D": {
+        "Success": true,
+        "Results": [
+            {
+                "Id": "15Ar",
+                "ResourceUri":  "/v1/sharedlistings/15Ar",
+                "SharedUri":  "http://www.flexmls.com/share/15Ar/3544-N-Olsen-Avenue-Filabee-AZ-85719",
+                "ListingIds": ["20110224152431857619000000","20110125122333785431000000"],
+                "Mode": "Public"
+            }
+        ]
+    }
+}
+  eos
+  },
+
+  # Shared Listings (single record)
+  # http://sparkplatform.com/docs/api_services/shared_listings
+  # /sharedlistings/:id
+  "/sharedlistings/1" => { get: <<-eos
+{
+    "D": {
+        "Success": true,
+        "Results": [
+            {
+                "Id": "15Ar",
+                "ResourceUri":  "/v1/sharedlistings/15Ar",
+                "SharedUri":  "http://www.flexmls.com/share/15Ar/3544-N-Olsen-Avenue-Filabee-AZ-85719",
+                "ListingIds": ["20110224152431857619000000","20110125122333785431000000"],
+                "Mode": "Public"
+            }
+        ]
+    }
+}
+  eos
+  },
+
   # Standard Field (Individual Standard Field)
   # http://sparkplatform.com/docs/api_services/standard_fields#individual_standard_fields
   # mls/<MlsId>/standardfields/<StandardField>
